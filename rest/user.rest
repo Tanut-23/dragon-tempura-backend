@@ -1,0 +1,32 @@
+### Register
+POST http://localhost:3000/api/users-register
+Content-Type: application/json
+
+{
+    "firstName": "Tanut",
+    "lastName": "Ketrueang",
+    "email": "tanut@example.com",
+    "password": "Nut1129700233551",
+    "phone": "0123456789"
+}
+
+### Login
+POST http://localhost:3000/api/users-login
+Content-Type: application/json
+
+{
+    "email": "tanut@example.com",
+    "password": "Nut1129700233551"
+}
+
+### Reset password
+PATCH http://localhost:3000/api/users-resetpassword
+Content-Type: application/json
+
+{
+    "email": "tanut.ktr@gmail.com",
+    "password": "12345678900000"
+}
+
+### Get user
+GET http://localhost:3000/api/users
