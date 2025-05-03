@@ -8,30 +8,25 @@ const ProductSchema = new Schema({
   artist: { type: String, required: true },
   sellerName: { type: String, required: true },
 
-  yearCreated: { type: Number },
-  dimensions: {
-    width: { type: Number },
-    height: { type: Number },
-    unit: { type: String, default: "cm" },
-  },
+  yearCreated: { type: String },
+  dimensions:  { type: String },
   material: { type: String },
 
-  tags: [
+  tags:
     {
-      type: String,
-      enum: [
-        "Abstract",
-        "Modern",
-        "Contemporary",
-        "Portrait",
-        "Historical",
-        "Classic",
-      ],
+      type: Array,
+      // enum: [
+      //   "Abstract",
+      //   "Modern",
+      //   "Contemporary",
+      //   "Portrait",
+      //   "Historical",
+      //   "Classic",
+      // ],
     },
-  ],
 
-  price: { type: Number },
-  minBidPrice: { type: Number },
+  price: { type: String },
+  minBidPrice: { type: String },
   auction: {
     isAuction: { type: Boolean, default: false },
     startDate: { type: Date },
