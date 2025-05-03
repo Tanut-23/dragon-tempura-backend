@@ -1,19 +1,34 @@
 ### Add product
 POST http://localhost:3000/api/product-add
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y2ZkYTc4Y2RjMjRlZDkzMDI1N2EiLCJpYXQiOjE3NDYyNTk5MzMsImV4cCI6MTc0NjI2MzUzM30.CjHHl9KDu_tI0LQGJMdEVJSdiKKnW8mDqQSgvb47cFc
 
 {
-    "title": "Lady in White Silk Gown",
+    "title": "Test from rest",
     "description":
-      "This exquisite historical portrait depicts a young aristocratic woman in an elaborate white silk gown with intricate lace details. She is adorned with elegant pearl jewelry, including a multi-strand necklace and matching earrings, as well as gold bracelets that highlight her refined status. The subject's serene expression and graceful pose embody 19th-century ideals of feminine beauty and nobility. The artist masterfully renders the luminous quality of the silk dress and the delicate transparency of the lace sleeves. The background combines rich red drapery with a glimpse of a landscape vista, creating a sense of depth and grandeur typical of formal court portraiture. The meticulous attention to texture and light, particularly in the rendering of the sumptuous fabric and jewels, demonstrates exceptional technical skill characteristic of academic painting traditions.",
-    "artist": "Franz Xaver Winterhalter",
-    "price": 8750000,
-    "sellerName": "mate",
+      "Test fromr rest",
+    "artist": "Test from Nutty",
+    "price": 123456,
+    "sellerName": "Nutty",
     "image":
       "dragon-tempura-sprint2/public/productPicture/Portrait-Painting-Modern-Art-2.jpg",
     "dimensions": "142cm x 102cm x 4cm",
-    "material": "Oil on canvas",
+    "material": "No matter",
     "yearCreated": 1850,
-    "tags": ["Portrait", "Historical", "Classic"],
-    "sellerName": "Royal Heritage Auctions"
+    "tags": ["Portrait", "Historical", "Classic"]
 }
+
+### Get product
+GET http://localhost:3000/api/product-get
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y2ZkYTc4Y2RjMjRlZDkzMDI1N2EiLCJpYXQiOjE3NDYyNTk5MzMsImV4cCI6MTc0NjI2MzUzM30.CjHHl9KDu_tI0LQGJMdEVJSdiKKnW8mDqQSgvb47cFc
+
+### Get product by userId
+GET http://localhost:3000/api/product-get/6815cfda78cdc24ed930257a
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y2ZkYTc4Y2RjMjRlZDkzMDI1N2EiLCJpYXQiOjE3NDYyNjM5MjgsImV4cCI6MTc0ODg1NTkyOH0.X_Pdirz-ZNOxbqkK6HrXSpVJ3WgRJJx1Tp-SN93DgUc
+
+### Delete product by productId
+DELETE http://localhost:3000/api/product-delete/6815d50ba54d919e0adc03f2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y2ZkYTc4Y2RjMjRlZDkzMDI1N2EiLCJpYXQiOjE3NDYyNjM5MjgsImV4cCI6MTc0ODg1NTkyOH0.X_Pdirz-ZNOxbqkK6HrXSpVJ3WgRJJx1Tp-SN93DgUc

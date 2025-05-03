@@ -9,21 +9,10 @@ const ProductSchema = new Schema({
   sellerName: { type: String, required: true },
 
   yearCreated: { type: String },
-  dimensions:  { type: String },
+  dimensions: { type: String },
   material: { type: String },
 
-  tags:
-    {
-      type: Array,
-      // enum: [
-      //   "Abstract",
-      //   "Modern",
-      //   "Contemporary",
-      //   "Portrait",
-      //   "Historical",
-      //   "Classic",
-      // ],
-    },
+  tags: { type: Array },
 
   price: { type: String },
   minBidPrice: { type: String },
@@ -40,6 +29,8 @@ const ProductSchema = new Schema({
     enum: ["completed", "onGoing"],
     default: "onGoing",
   },
+
+  userId: { type: Schema.Types.ObjectId, ref: "User", required: true },
 
   createdAt: { type: Date, default: new Date().getTime() },
   updatedAt: { type: Date, default: new Date().getTime() },
