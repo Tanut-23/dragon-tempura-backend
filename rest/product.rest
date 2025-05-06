@@ -1,0 +1,55 @@
+### Add product
+POST http://localhost:3000/api/product-add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y2ZkYTc4Y2RjMjRlZDkzMDI1N2EiLCJpYXQiOjE3NDYyNjM5MjgsImV4cCI6MTc0ODg1NTkyOH0.X_Pdirz-ZNOxbqkK6HrXSpVJ3WgRJJx1Tp-SN93DgUc
+
+{
+    "title": "Test from rest",
+    "description":
+      "Test fromr rest",
+    "artist": "Test from Nutty",
+    "price": 123456,
+    "sellerName": "Nutty",
+    "image":
+      "dragon-tempura-sprint2/public/productPicture/Portrait-Painting-Modern-Art-2.jpg",
+    "dimensions": "142cm x 102cm x 4cm",
+    "material": "No matter",
+    "yearCreated": 1850,
+    "tags": ["Portrait", "Historical", "Classic"]
+}
+
+### Get product
+GET http://localhost:3000/api/product-get
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y2ZkYTc4Y2RjMjRlZDkzMDI1N2EiLCJpYXQiOjE3NDYyNTk5MzMsImV4cCI6MTc0NjI2MzUzM30.CjHHl9KDu_tI0LQGJMdEVJSdiKKnW8mDqQSgvb47cFc
+
+### Get product by userId
+GET http://localhost:3000/api/product-get/6815cfda78cdc24ed930257a
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y2ZkYTc4Y2RjMjRlZDkzMDI1N2EiLCJpYXQiOjE3NDYyNjM5MjgsImV4cCI6MTc0ODg1NTkyOH0.X_Pdirz-ZNOxbqkK6HrXSpVJ3WgRJJx1Tp-SN93DgUc
+
+### Edit by put product
+PUT http://localhost:3000/api/product-put/681621331ca85a3546f2a4a1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y2ZkYTc4Y2RjMjRlZDkzMDI1N2EiLCJpYXQiOjE3NDYyNjM5MjgsImV4cCI6MTc0ODg1NTkyOH0.X_Pdirz-ZNOxbqkK6HrXSpVJ3WgRJJx1Tp-SN93DgUc
+
+{
+    "title": "Test from rest by Nutty",
+    "description":
+      "Test fromr rest by Nutty",
+    "artist": "Test from Nutty",
+    "price": 1234566666666666666666666666,
+    "sellerName": "Nutty",
+    "image":
+      "dragon-tempura-sprint2/public/productPicture/Portrait-Painting-Modern-Art-2.jpg",
+    "dimensions": "142cm x 102cm x 4cm",
+    "material": "No matter",
+    "yearCreated": 1850,
+    "tags": ["Portrait", "Historical", "Classic"]
+}
+
+### Delete product by productId
+DELETE http://localhost:3000/api/product-delete/6815d50ba54d919e0adc03f2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y2ZkYTc4Y2RjMjRlZDkzMDI1N2EiLCJpYXQiOjE3NDYyNjM5MjgsImV4cCI6MTc0ODg1NTkyOH0.X_Pdirz-ZNOxbqkK6HrXSpVJ3WgRJJx1Tp-SN93DgUc
+

@@ -7,7 +7,7 @@ import jwt from "jsonwebtoken";
 export const getUser = async (req, res) => {
   try {
     const user = await User.find();
-    res.json({ error: false, user });
+    res.status(201).json({ error: false, user });
   } catch (err) {
     res.status(500).json({
       error: true,
@@ -74,7 +74,7 @@ export const loginUser = async (req, res) => {
     }
 
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
+      expiresIn: "30d",
     });
 
     res.json({
