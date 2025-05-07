@@ -124,21 +124,4 @@ export const deleteProduct = async (req, res) => {
   }
 };
 
-// import { Product } from "../model/Product.js";
 
-// export const addProduct = async (res,req) => {
-
-//     try {
-//         const newProduct = new Product(req.body);
-//         const save = newProduct.save();
-//         res.status(201).json(save);
-
-//     } catch (err) {
-//         res.status(500).json({
-//             error: true,
-//             message: "Server error",
-//             detail: err.message,
-//         });
-//     }
-// }
-// const { title , description ,  artist , image  , sellerName , dimensions , material , yearCreated , tags , price , status } = req.body;

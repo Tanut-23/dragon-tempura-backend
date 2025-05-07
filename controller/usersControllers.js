@@ -3,6 +3,33 @@ import generateToken from "../utils/generateToken.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
+//-----Get User By UserId-----//
+
+export const getUserById = async (req , res) => {
+  const { id } = req.params;
+  try{
+    const user = await User.findById(id);
+  if (!user) {
+    return res.status(404).json({
+      error: true,
+      message: "Can't find userId"
+    });
+  }
+
+  res.status(200).json({
+    error:false,
+    user
+  })
+  } catch (err){
+    res.status(500).json({
+      error: true,
+      message: "Fail to fetch",
+      detail: err.message,
+    })
+  }
+
+}
+
 //-----Get User------//
 export const getUser = async (req, res) => {
   try {

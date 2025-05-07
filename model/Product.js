@@ -26,8 +26,13 @@ const ProductSchema = new Schema({
 
   status: {
     type: String,
-    enum: ["completed", "onGoing"],
+    enum: ["completed", "onGoing" ],
     default: "onGoing",
+  },
+  approve: {
+    type: String,
+    enum: ["approved", "rejected", "pending" ],
+    default: "pending",
   },
 
   userId: { type: Schema.Types.ObjectId, ref: "User", required: true },
