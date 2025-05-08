@@ -3,9 +3,9 @@ POST http://localhost:3000/api/users-register
 Content-Type: application/json
 
 {
-    "firstName": "Tanut",
-    "lastName": "Ketrueang",
-    "email": "tanut@example.com",
+    "firstName": "Ling",
+    "lastName": "Dragon",
+    "email": "dragonLing@example.com",
     "password": "123456789zZ",
     "phone": "0123456789"
 }
@@ -15,7 +15,7 @@ POST http://localhost:3000/api/users-login
 Content-Type: application/json
 
 {
-    "email": "tanut@example.com",
+    "email": "dragonLing@example.com",
     "password": "123456789zZ"
 }
 
@@ -24,8 +24,8 @@ PATCH http://localhost:3000/api/users-resetpassword
 Content-Type: application/json
 
 {
-    "email": "tanut.ktr@gmail.com",
-    "password": "123456789zZ"
+    "email": "dragonLing@example.com",
+    "password": "Reset23456789zZ"
 }
 
 ### Get user

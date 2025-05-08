@@ -1,15 +1,15 @@
 ### Add product
 POST http://localhost:3000/api/product-add
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y2ZkYTc4Y2RjMjRlZDkzMDI1N2EiLCJpYXQiOjE3NDYyNjM5MjgsImV4cCI6MTc0ODg1NTkyOH0.X_Pdirz-ZNOxbqkK6HrXSpVJ3WgRJJx1Tp-SN93DgUc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTA4OGU3NjAxYjYyOTU3NDA1NTYiLCJpYXQiOjE3NDY2MDQ1NjEsImV4cCI6MTc0OTE5NjU2MX0.AO6kWeR-amMoorRr5RNXpkJ6I2ZOcFZ1h5KQ1DTCYTA
 
 {
-    "title": "Test from rest",
+    "title": "Test Ling2 from rest",
     "description":
-      "Test fromr rest",
-    "artist": "Test from Nutty",
-    "price": 123456,
-    "sellerName": "Nutty",
+      "Description Test Ling2 from rest",
+    "artist": "Test from Ling2",
+    "price": 2000,
+    "sellerName": "PMate2",
     "image":
       "dragon-tempura-sprint2/public/productPicture/Portrait-Painting-Modern-Art-2.jpg",
     "dimensions": "142cm x 102cm x 4cm",
@@ -21,25 +21,25 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y
 ### Get product
 GET http://localhost:3000/api/product-get
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y2ZkYTc4Y2RjMjRlZDkzMDI1N2EiLCJpYXQiOjE3NDYyNTk5MzMsImV4cCI6MTc0NjI2MzUzM30.CjHHl9KDu_tI0LQGJMdEVJSdiKKnW8mDqQSgvb47cFc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTA4OGU3NjAxYjYyOTU3NDA1NTYiLCJpYXQiOjE3NDY2MDQ1NjEsImV4cCI6MTc0OTE5NjU2MX0.AO6kWeR-amMoorRr5RNXpkJ6I2ZOcFZ1h5KQ1DTCYTA
 
 ### Get product by userId
-GET http://localhost:3000/api/product-get/6815cfda78cdc24ed930257a
+GET http://localhost:3000/api/product-get/681b1088e7601b6295740556
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y2ZkYTc4Y2RjMjRlZDkzMDI1N2EiLCJpYXQiOjE3NDYyNjM5MjgsImV4cCI6MTc0ODg1NTkyOH0.X_Pdirz-ZNOxbqkK6HrXSpVJ3WgRJJx1Tp-SN93DgUc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTA4OGU3NjAxYjYyOTU3NDA1NTYiLCJpYXQiOjE3NDY2MDQ1NjEsImV4cCI6MTc0OTE5NjU2MX0.AO6kWeR-amMoorRr5RNXpkJ6I2ZOcFZ1h5KQ1DTCYTA
 
 ### Edit by put product
-PUT http://localhost:3000/api/product-put/681621331ca85a3546f2a4a1
+PUT http://localhost:3000/api/product-put/681b13799e2bff4d7fab3ec7
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y2ZkYTc4Y2RjMjRlZDkzMDI1N2EiLCJpYXQiOjE3NDYyNjM5MjgsImV4cCI6MTc0ODg1NTkyOH0.X_Pdirz-ZNOxbqkK6HrXSpVJ3WgRJJx1Tp-SN93DgUc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTA4OGU3NjAxYjYyOTU3NDA1NTYiLCJpYXQiOjE3NDY2MDQ1NjEsImV4cCI6MTc0OTE5NjU2MX0.AO6kWeR-amMoorRr5RNXpkJ6I2ZOcFZ1h5KQ1DTCYTA
 
 {
-    "title": "Test from rest by Nutty",
+    "title": "Edited Test Ling2 from rest",
     "description":
-      "Test fromr rest by Nutty",
-    "artist": "Test from Nutty",
-    "price": 1234566666666666666666666666,
-    "sellerName": "Nutty",
+      "Edited Description Test Ling2 from rest",
+    "artist": "Test from Ling2",
+    "price": 2000,
+    "sellerName": "PMate2",
     "image":
       "dragon-tempura-sprint2/public/productPicture/Portrait-Painting-Modern-Art-2.jpg",
     "dimensions": "142cm x 102cm x 4cm",
@@ -49,7 +49,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y
 }
 
 ### Delete product by productId
-DELETE http://localhost:3000/api/product-delete/6815d50ba54d919e0adc03f2
+DELETE http://localhost:3000/api/product-delete/681b13799e2bff4d7fab3ec7
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y2ZkYTc4Y2RjMjRlZDkzMDI1N2EiLCJpYXQiOjE3NDYyNjM5MjgsImV4cCI6MTc0ODg1NTkyOH0.X_Pdirz-ZNOxbqkK6HrXSpVJ3WgRJJx1Tp-SN93DgUc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTA4OGU3NjAxYjYyOTU3NDA1NTYiLCJpYXQiOjE3NDY2MDQ1NjEsImV4cCI6MTc0OTE5NjU2MX0.AO6kWeR-amMoorRr5RNXpkJ6I2ZOcFZ1h5KQ1DTCYTA
 
