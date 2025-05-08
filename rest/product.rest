@@ -1,7 +1,7 @@
 ### Add product
 POST http://localhost:3000/api/product-add
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y2ZkYTc4Y2RjMjRlZDkzMDI1N2EiLCJpYXQiOjE3NDYyNjM5MjgsImV4cCI6MTc0ODg1NTkyOH0.X_Pdirz-ZNOxbqkK6HrXSpVJ3WgRJJx1Tp-SN93DgUc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTk4MzdkYzIzM2VjZDBmMWY3MTQiLCJpYXQiOjE3NDY2MDY0NzMsImV4cCI6MTc0OTE5ODQ3M30.WVWuwxNBeKVElieGdvxQ0To8mcs0C1Im2YnoZZJRmWM
 
 {
     "title": "Test from rest",
@@ -21,15 +21,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y
 ### Get product
 GET http://localhost:3000/api/product-get
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y2ZkYTc4Y2RjMjRlZDkzMDI1N2EiLCJpYXQiOjE3NDYyNTk5MzMsImV4cCI6MTc0NjI2MzUzM30.CjHHl9KDu_tI0LQGJMdEVJSdiKKnW8mDqQSgvb47cFc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTk4MzdkYzIzM2VjZDBmMWY3MTQiLCJpYXQiOjE3NDY2MzUwNTIsImV4cCI6MTc0OTIyNzA1Mn0.Bu9avjVZLAXG5UvrAfLCkbsLJP7aPMy24IjhhncGyNA
 
 ### Get product by userId
-GET http://localhost:3000/api/product-get/6815cfda78cdc24ed930257a
+GET http://localhost:3000/api/product-get/681b19837dc233ecd0f1f714
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y2ZkYTc4Y2RjMjRlZDkzMDI1N2EiLCJpYXQiOjE3NDYyNjM5MjgsImV4cCI6MTc0ODg1NTkyOH0.X_Pdirz-ZNOxbqkK6HrXSpVJ3WgRJJx1Tp-SN93DgUc
 
 ### Edit by put product
-PUT http://localhost:3000/api/product-put/681621331ca85a3546f2a4a1
+PUT http://localhost:3000/api/product-put/681b19ba7dc233ecd0f1f717
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y2ZkYTc4Y2RjMjRlZDkzMDI1N2EiLCJpYXQiOjE3NDYyNjM5MjgsImV4cCI6MTc0ODg1NTkyOH0.X_Pdirz-ZNOxbqkK6HrXSpVJ3WgRJJx1Tp-SN93DgUc
 
