@@ -21,7 +21,7 @@ export const addProduct = async (req, res) => {
 //-----Get Product-----//
 export const getProduct = async (req, res) => {
   try {
-    const allProduct = await Product.find();
+    const allProduct = await Product.find({'auction.isAuction': false});
     res.status(201).json({
       err: false,
       allProduct,
@@ -119,6 +119,24 @@ export const deleteProduct = async (req, res) => {
     res.status(500).json({
       error: true,
       message: "Fail to fetch product for delete.",
+      detail: err.message,
+    });
+  }
+};
+
+
+//-----Get All Auction Product-----//
+export const getAllAuctionProduct = async (req, res) => {
+  try {
+    const allAuctionProduct = await Product.find({'auction.isAuction': true});
+    res.status(201).json({
+      err: false,
+      allAuctionProduct
+    });
+  } catch(err) {
+    res.status(500).json({
+      error: true,
+      message: "Fail to fetch auction product",
       detail: err.message,
     });
   }

@@ -1,27 +1,30 @@
 ### Add product
 POST http://localhost:3000/api/product-add
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTk4MzdkYzIzM2VjZDBmMWY3MTQiLCJpYXQiOjE3NDY2MDY0NzMsImV4cCI6MTc0OTE5ODQ3M30.WVWuwxNBeKVElieGdvxQ0To8mcs0C1Im2YnoZZJRmWM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTA4OGU3NjAxYjYyOTU3NDA1NTYiLCJpYXQiOjE3NDY2MDQ1NjEsImV4cCI6MTc0OTE5NjU2MX0.AO6kWeR-amMoorRr5RNXpkJ6I2ZOcFZ1h5KQ1DTCYTA
 
 {
-    "title": "Test Ling2 from rest",
+    "title": "Modern Portrait in Brown",
     "description":
-      "Description Test Ling2 from rest",
-    "artist": "Test from Ling2",
-    "price": 2000,
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed molestie sem sagittis felis ornare euismod. Proin egestas convallis nisl, in consectetur libero rhoncus at. Integer nec varius felis. Maecenas nec nulla ac neque facilisis fermentum non a elit. In eu sapien eu leo imperdiet maximus. Nulla bibendum congue felis, vulputate auctor dolor venenatis sit amet. Nunc fermentum congue fringilla. Nulla sit amet porta risus. Aliquam id gravida dolor, vitae accumsan erat. Mauris vel ultrices mi. Sed molestie metus laoreet purus pretium gravida. Proin non semper nulla. Praesent vel egestas orci. Sed porttitor nulla eu dolor imperdiet, fermentum cursus ex ultrices. In consectetur sagittis ex a auctor. Nunc varius diam eu viverra pulvinar.",
+    "artist": "Sophia Laurent",
+    "price": 2450.00,
     "sellerName": "PMate2",
     "image":
-      "dragon-tempura-sprint2/public/productPicture/Portrait-Painting-Modern-Art-2.jpg",
-    "dimensions": "142cm x 102cm x 4cm",
-    "material": "No matter",
-    "yearCreated": 1850,
-    "tags": ["Portrait", "Historical", "Classic"]
+      "/productPicture/Abstract-Painting-Modern-Art-1.jpg",
+    "dimensions": "45cm x 22cm x 8cm",
+    "material": "Linen",
+    "yearCreated": 1998,
+    "tags": ["Portrait", "Historical", "Classic"],
+    "auction": {
+      "isAuction": true
+    }
 }
 
 ### Get product
 GET http://localhost:3000/api/product-get
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTk4MzdkYzIzM2VjZDBmMWY3MTQiLCJpYXQiOjE3NDY2MzUwNTIsImV4cCI6MTc0OTIyNzA1Mn0.Bu9avjVZLAXG5UvrAfLCkbsLJP7aPMy24IjhhncGyNA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTA4OGU3NjAxYjYyOTU3NDA1NTYiLCJpYXQiOjE3NDY2MDQ1NjEsImV4cCI6MTc0OTE5NjU2MX0.AO6kWeR-amMoorRr5RNXpkJ6I2ZOcFZ1h5KQ1DTCYTA
 
 ### Get product by userId
 GET http://localhost:3000/api/product-get/681b19837dc233ecd0f1f714
@@ -53,3 +56,8 @@ DELETE http://localhost:3000/api/product-delete/681b13799e2bff4d7fab3ec7
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTA4OGU3NjAxYjYyOTU3NDA1NTYiLCJpYXQiOjE3NDY2MDQ1NjEsImV4cCI6MTc0OTE5NjU2MX0.AO6kWeR-amMoorRr5RNXpkJ6I2ZOcFZ1h5KQ1DTCYTA
 
+
+### Get all auction product
+GET http://localhost:3000/api/product-get-auction
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTA4OGU3NjAxYjYyOTU3NDA1NTYiLCJpYXQiOjE3NDY2MDQ1NjEsImV4cCI6MTc0OTE5NjU2MX0.AO6kWeR-amMoorRr5RNXpkJ6I2ZOcFZ1h5KQ1DTCYTA
