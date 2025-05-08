@@ -1,7 +1,7 @@
 ### Add product
 POST http://localhost:3000/api/product-add
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTA4OGU3NjAxYjYyOTU3NDA1NTYiLCJpYXQiOjE3NDY2MDQ1NjEsImV4cCI6MTc0OTE5NjU2MX0.AO6kWeR-amMoorRr5RNXpkJ6I2ZOcFZ1h5KQ1DTCYTA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTk4MzdkYzIzM2VjZDBmMWY3MTQiLCJpYXQiOjE3NDY2MDY0NzMsImV4cCI6MTc0OTE5ODQ3M30.WVWuwxNBeKVElieGdvxQ0To8mcs0C1Im2YnoZZJRmWM
 
 {
     "title": "Test Ling2 from rest",
@@ -21,15 +21,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiM
 ### Get product
 GET http://localhost:3000/api/product-get
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTA4OGU3NjAxYjYyOTU3NDA1NTYiLCJpYXQiOjE3NDY2MDQ1NjEsImV4cCI6MTc0OTE5NjU2MX0.AO6kWeR-amMoorRr5RNXpkJ6I2ZOcFZ1h5KQ1DTCYTA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTk4MzdkYzIzM2VjZDBmMWY3MTQiLCJpYXQiOjE3NDY2MzUwNTIsImV4cCI6MTc0OTIyNzA1Mn0.Bu9avjVZLAXG5UvrAfLCkbsLJP7aPMy24IjhhncGyNA
 
 ### Get product by userId
-GET http://localhost:3000/api/product-get/681b1088e7601b6295740556
+GET http://localhost:3000/api/product-get/681b19837dc233ecd0f1f714
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTA4OGU3NjAxYjYyOTU3NDA1NTYiLCJpYXQiOjE3NDY2MDQ1NjEsImV4cCI6MTc0OTE5NjU2MX0.AO6kWeR-amMoorRr5RNXpkJ6I2ZOcFZ1h5KQ1DTCYTA
 
 ### Edit by put product
-PUT http://localhost:3000/api/product-put/681b13799e2bff4d7fab3ec7
+PUT http://localhost:3000/api/product-put/681b19ba7dc233ecd0f1f717
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTA4OGU3NjAxYjYyOTU3NDA1NTYiLCJpYXQiOjE3NDY2MDQ1NjEsImV4cCI6MTc0OTE5NjU2MX0.AO6kWeR-amMoorRr5RNXpkJ6I2ZOcFZ1h5KQ1DTCYTA
 

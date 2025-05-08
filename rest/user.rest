@@ -19,6 +19,12 @@ Content-Type: application/json
     "password": "123456789zZ"
 }
 
+### Logout user
+POST http://localhost:3000/api/auth/logout
+Content-Type: application/json
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTk4MzdkYzIzM2VjZDBmMWY3MTQiLCJpYXQiOjE3NDY2MzUwNTIsImV4cCI6MTc0OTIyNzA1Mn0.Bu9avjVZLAXG5UvrAfLCkbsLJP7aPMy24IjhhncGyNA
+
+
 ### Reset password
 PATCH http://localhost:3000/api/users-resetpassword
 Content-Type: application/json
