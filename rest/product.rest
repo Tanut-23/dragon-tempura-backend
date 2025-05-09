@@ -56,6 +56,9 @@ DELETE http://localhost:3000/api/product-delete/681b13799e2bff4d7fab3ec7
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTA4OGU3NjAxYjYyOTU3NDA1NTYiLCJpYXQiOjE3NDY2MDQ1NjEsImV4cCI6MTc0OTE5NjU2MX0.AO6kWeR-amMoorRr5RNXpkJ6I2ZOcFZ1h5KQ1DTCYTA
 
+### Get My Product
+GET http://localhost:3000/api/my-product
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFjNjA4N2FjYjI3NDRkMDZjOGM5Y2MiLCJpYXQiOjE3NDY2OTM2OTcsImV4cCI6MTc0OTI4NTY5N30.ADUqtR9QhIVk5_GEOt0DedSLK42FpUp_EErZLwcaaFo
 
 ### Get all auction product
 GET http://localhost:3000/api/product-get-auction
