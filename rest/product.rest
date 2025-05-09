@@ -21,7 +21,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiM
 ### Get product
 GET http://localhost:3000/api/product-get
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTk4MzdkYzIzM2VjZDBmMWY3MTQiLCJpYXQiOjE3NDY2MzUwNTIsImV4cCI6MTc0OTIyNzA1Mn0.Bu9avjVZLAXG5UvrAfLCkbsLJP7aPMy24IjhhncGyNA
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFjNjA4N2FjYjI3NDRkMDZjOGM5Y2MiLCJpYXQiOjE3NDY2OTM2OTcsImV4cCI6MTc0OTI4NTY5N30.ADUqtR9QhIVk5_GEOt0DedSLK42FpUp_EErZLwcaaFo
 
 ### Get product by userId
 GET http://localhost:3000/api/product-get/681b19837dc233ecd0f1f714
@@ -29,9 +29,9 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y2ZkYTc4Y2RjMjRlZDkzMDI1N2EiLCJpYXQiOjE3NDYyNjM5MjgsImV4cCI6MTc0ODg1NTkyOH0.X_Pdirz-ZNOxbqkK6HrXSpVJ3WgRJJx1Tp-SN93DgUc
 
 ### Edit by put product
-PUT http://localhost:3000/api/product-put/681b19ba7dc233ecd0f1f717
+PUT http://localhost:3000/api/product-put/681da8b47118d603ecd8d3f9
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y2ZkYTc4Y2RjMjRlZDkzMDI1N2EiLCJpYXQiOjE3NDYyNjM5MjgsImV4cCI6MTc0ODg1NTkyOH0.X_Pdirz-ZNOxbqkK6HrXSpVJ3WgRJJx1Tp-SN93DgUc
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFhZDY5YzU3ODhmZTUwOTNmMTEzMzkiLCJpYXQiOjE3NDY3NzIwNTMsImV4cCI6MTc0OTM2NDA1M30.7eifdlfc6fhtAlbVDGx57R_c3RZNrFbX35XH1a7NRCo
 
 {
     "title": "Test from rest by Nutty",
@@ -54,5 +54,9 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE1Y2ZkYTc4Y2RjMjRlZDkzMDI1N2EiLCJpYXQiOjE3NDYyNjM5MjgsImV4cCI6MTc0ODg1NTkyOH0.X_Pdirz-ZNOxbqkK6HrXSpVJ3WgRJJx1Tp-SN93DgUc
 
 ###
-GET http://localhost:3000/api/my-product
+GET http://localhost:3000/api/my-products
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFjNjA4N2FjYjI3NDRkMDZjOGM5Y2MiLCJpYXQiOjE3NDY2OTM2OTcsImV4cCI6MTc0OTI4NTY5N30.ADUqtR9QhIVk5_GEOt0DedSLK42FpUp_EErZLwcaaFo
+
+###
+GET http://localhost:3000/api/product-get/681da8b47118d603ecd8d3f9
 Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFjNjA4N2FjYjI3NDRkMDZjOGM5Y2MiLCJpYXQiOjE3NDY2OTM2OTcsImV4cCI6MTc0OTI4NTY5N30.ADUqtR9QhIVk5_GEOt0DedSLK42FpUp_EErZLwcaaFo
