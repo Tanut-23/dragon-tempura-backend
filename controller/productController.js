@@ -18,11 +18,11 @@ export const addProduct = async (req, res) => {
   }
 };
 
-//-----Get Product-----//
+//-----Get Fixed Price Product-----//
 export const getProduct = async (req, res) => {
   try {
     const allProduct = await Product.find({'auction.isAuction': false});
-    res.status(201).json({
+    res.status(200).json({
       err: false,
       allProduct,
     });
@@ -153,7 +153,7 @@ export const deleteProduct = async (req, res) => {
 export const getAllAuctionProduct = async (req, res) => {
   try {
     const allAuctionProduct = await Product.find({'auction.isAuction': true});
-    res.status(201).json({
+    res.status(200).json({
       err: false,
       allAuctionProduct
     });
