@@ -58,6 +58,29 @@ export const getProductById = async (req, res) => {
     })
   }
 }
+//-----Get Product By productId-----//
+export const getOnceProductById = async (req, res) => {
+  const productId = req.params.id;
+  try {
+    const product = await Product.findById(productId)
+    if(!product) {
+      return res.status(404).json({
+        err: true,
+        message: "Can't find productId",
+      })
+    }
+    res.status(200).json({
+      error: false,
+      product,
+    })
+  } catch(err){
+    res.status(500).json({
+      error: true,
+      message: "Failed to fetch product",
+      detail: err.message,
+    })
+  }
+}
 
 //-----Get Product By UserId-----//
 export const getProductByUserId = async (req, res) => {
