@@ -18,11 +18,11 @@ export const addProduct = async (req, res) => {
   }
 };
 
-//-----Get Product-----//
+//-----Get Fixed Price Product-----//
 export const getProduct = async (req, res) => {
   try {
     const allProduct = await Product.find({'auction.isAuction': false});
-    res.status(201).json({
+    res.status(200).json({
       err: false,
       allProduct,
     });
@@ -34,6 +34,30 @@ export const getProduct = async (req, res) => {
     });
   }
 };
+
+//-----Get Product By productId-----//
+export const getProductById = async (req, res) => {
+  const productId = req.params.id;
+  try {
+    const product = await Product.findById(productId)
+    if(!product) {
+      return res.status(404).json({
+        err: true,
+        message: "Can't find productId",
+      })
+    }
+    res.status(200).json({
+      error: false,
+      product,
+    })
+  } catch(err){
+    res.status(500).json({
+      error: true,
+      message: "Failed to fetch product",
+      detail: err.message,
+    })
+  }
+}
 
 //-----Get Product By UserId-----//
 export const getProductByUserId = async (req, res) => {
@@ -64,16 +88,16 @@ export const editByPutProduct = async (req, res) => {
   const productId = req.params.id;
   const userId = req.user._id;
   try {
+    const product = await Product.findById(productId);
     //-----Validation-----//
-    const checkProductOwner = await Product.findOne({ _id: userId });
-    if (!checkProductOwner) {
-      return res.status(404).json({
-        err: true,
+    if(product.userId.toString() !== userId.toString()){
+      return res.status(403).json({
+        error: true,
         message: "You are not the owner",
-      });
+      })
     }
-    const existingProduct = await Product.findOne({ _id: productId });
-    if (!existingProduct) {
+    
+    if (!product) {
       return res.status(404).json({
         error: true,
         message: "Product not found",
@@ -129,7 +153,7 @@ export const deleteProduct = async (req, res) => {
 export const getAllAuctionProduct = async (req, res) => {
   try {
     const allAuctionProduct = await Product.find({'auction.isAuction': true});
-    res.status(201).json({
+    res.status(200).json({
       err: false,
       allAuctionProduct
     });
