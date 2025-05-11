@@ -16,6 +16,10 @@ const ProductSchema = new Schema({
 
   price: { type: String },
   minBidPrice: { type: String },
+  currentBid: {
+    type: Schema.Types.ObjectId,
+    ref: 'Bid'
+  },
   auction: {
     isAuction: { type: Boolean, default: false },
     startDate: { type: Date },
@@ -26,12 +30,12 @@ const ProductSchema = new Schema({
 
   status: {
     type: String,
-    enum: ["completed", "onGoing" ],
+    enum: ["completed", "onGoing"],
     default: "onGoing",
   },
   approve: {
     type: String,
-    enum: ["approved", "rejected", "pending" ],
+    enum: ["approved", "rejected", "pending"],
     default: "pending",
   },
 
