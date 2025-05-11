@@ -6,8 +6,8 @@ const router = express.Router();
 //-----Add Order-----//
 export const addOrder = async (req, res) => {
     try {
-        const newOrder = new Order({ ...req.body, userId: req.user._id });
-        const saved = await newOrder.save();
+        const newOrder55 = new Order({ ...req.body, userId: req.user._id });
+        const saved = await newOrder55.save();
         res.status(201).json(saved);
     } catch(err) {
         res.status(500).json({
