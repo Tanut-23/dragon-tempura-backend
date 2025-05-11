@@ -4,16 +4,15 @@ import dotenv from "dotenv";
 import router from "./routes/route.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import { Server } from 'socket.io';
 import http from 'http';
+import { initializeSocket } from './socket.js';
 
 dotenv.config();
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server, {
-  cors: { origin: 'http://localhost:5173', },
-});
+
+initializeSocket(server);
 
 app.use(cors({
   origin: "http://localhost:5173",
@@ -34,19 +33,6 @@ const port = process.env.PORT;
     process.exit(1);
   }
 })();
-
-// Socket
-io.on('connection', (socket) => {
-  console.log(`User connected: ${socket.id}`);
-
-  socket.on('oneBid', (dataAuctioneer) => {
-    io.emit('shareBid', dataAuctioneer);
-  });
-
-  socket.on('disconnect', () => {
-    console.log(`User disconnected: ${socket.id}`);
-  });
-});
 
 app.use("", router);
 
