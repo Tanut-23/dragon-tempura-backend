@@ -1,0 +1,23 @@
+###### Add Cart
+POST http://localhost:3000/api/cart-add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTA4OGU3NjAxYjYyOTU3NDA1NTYiLCJpYXQiOjE3NDY4Njk0MDEsImV4cCI6MTc0OTQ2MTQwMX0.A03GRz5fcT2jiiK6JMvc4LvKS9i1siQdRfH0Cj5oi9U
+
+{
+    "items": {
+            "productId": "481b198a9e2bff4d7fab3ed7",
+            "title": "abcdefg",
+            "image": "abc",
+            "artist": "abc",
+            "price": 123,
+            "quantity": 1
+        }
+}
+
+### Get Cart
+GET http://localhost:3000/api/cart-get
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTA4OGU3NjAxYjYyOTU3NDA1NTYiLCJpYXQiOjE3NDY4Njk0MDEsImV4cCI6MTc0OTQ2MTQwMX0.A03GRz5fcT2jiiK6JMvc4LvKS9i1siQdRfH0Cj5oi9U
+
+### Delete item in Cart / Delete Cart when no item
+DELETE http://localhost:3000/api/cart-delete/481b198a9e2bff4d7fab3ed7
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFkYWZjODNhYjY1YjJiY2E4MDE4ODAiLCJpYXQiOjE3NDY3NzYwMjAsImV4cCI6MTc0OTM2ODAyMH0.fi5m_sk0aNejb-5JDnJc622LTVU2ckHklHIRPnywkMM
