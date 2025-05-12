@@ -1,5 +1,5 @@
 import express from "express";
-import { getUser, registerUser , loginUser, resetPassword, getUserById } from "../controller/usersControllers.js";
+import { getUser, registerUser , loginUser, resetPassword, getUserById, logoutUser, verifyToken } from "../controller/usersControllers.js";
 import { authUser } from "./authMiddleware.js";
 
 const router = express.Router()
@@ -18,27 +18,9 @@ router.get("/users/:id", getUserById)
 
 //-----Check login-----//
 
-router.get("/auth/verify-token", authUser, (req, res) => {
-    res.json({
-      error: false,
-      message: "Authenticated",
-      user: req.user,
-    });
-  });
+router.get("/auth/verify-token", authUser, verifyToken);
 
 
 //-----Logout-----//
-router.post("/auth/logout", authUser, (req, res) => {
-  const isProduct = process.env.NODE_ENV === "production";
-    res.clearCookie("token", {
-      httpOnly: true,
-      secure: isProduct ,
-      sameSite: isProduct ? "strict" : "lax",
-      path: "/",
-    });
-    res.json({
-      error: false,
-      message: "Logout success",
-    });
-  });
+router.post("/auth/logout", authUser, logoutUser);
 export default router;
