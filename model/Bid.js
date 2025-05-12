@@ -1,17 +1,24 @@
 import { Schema, model } from "mongoose";
 
 const bidSchema = new Schema({
-  productId: {
-    type: Number,
+  product: {
+    type: Schema.Types.ObjectId,
+    ref: 'Product',
     required: true,
   },
-  firstName: String,
-  lastName: String,
-  amount: Number,
-  time: {
-    type: Date,
-    default: Date.now,
+   user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
   },
+  amount: {
+    type: String,
+    required: true
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 export const Bid = model("Bid", bidSchema);

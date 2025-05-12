@@ -61,7 +61,7 @@ GET http://localhost:3000/api/my-products
 Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFhZDY5YzU3ODhmZTUwOTNmMTEzMzkiLCJpYXQiOjE3NDY4MDY2MDEsImV4cCI6MTc0OTM5ODYwMX0.MRnA8q_GtyMO2l3sqvtTP5nDANxk_SamSJeGbAuR2_o
 
 ###
-GET http://localhost:3000/api/product/681e114a5e5e50a409efdb7e
+GET http://localhost:3000/api/product/681b198a9e2bff4d7fab3ed7
 
 ###
 GET http://localhost:3000/api/products?genre=Modern
