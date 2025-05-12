@@ -109,3 +109,29 @@ export const deleteCart = async (req, res) => {
         })
     }
 }
+
+
+//-----Delete Cart After Order-----//
+export const deleteCartAfterOrder = async (req, res) => {
+    try {
+        let cart = await Cart.findOne({ userId: req.user._id });
+        if (!cart) {
+            return res.status(404).json({
+                error: true,
+                message: "Can not find cart"
+            })
+        }
+        //Delete cart
+        await Cart.findByIdAndDelete(cart._id)
+        res.status(200).json({
+            error: false,
+            message: "Completed cart is deleted"
+        })
+        
+    } catch(err) {
+        res.status(500).json({
+            error: true,
+            message: "Can not delete completed cart"
+        })
+    }
+}
