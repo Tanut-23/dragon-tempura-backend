@@ -18,10 +18,12 @@ const server = http.createServer(app);
 
 initializeSocket(server);
 
-app.use(cors({
-  origin: ["http://localhost:5173","https://dragon-tempura-sprint2.vercel.app/"],
+const corsOptions = {
+  origin: ["http://localhost:5173","https://dragon-tempura-sprint2.vercel.app"],
   credentials: true,
-}));
+}
+
+app.use(cors(corsOptions));
 app.use(cookieParser());
 
 app.use(express.json());
@@ -78,7 +80,7 @@ app.get("/", (req, res) => {
       </head>
       <body>
         <div class="container">
-          <h1>📒 Welcome to the Collectico</h1>
+          <h1> Welcome to the Collectico</h1>
           <p>This is a REST API built with <strong>Express</strong>.</p>
           <p>Come to our member<code>POST /users-register</code>.</p>
           <p>✨ Welcome to our museum COLLECTIO!</p>
