@@ -6,7 +6,7 @@ const OrderSchema = new Schema({
     enum: ["Standard", "Premium", "Expedited"],
     default: "Standard",
   },
-  totalPrice: {type: Number, default: 0},
+  totalPrice: {type: Array, default: 0},
   firstName: { type: String, required: false },
   lastName: { type: String, required: false },
   email: { type: String, required: false },
