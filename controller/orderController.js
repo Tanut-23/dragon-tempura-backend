@@ -21,7 +21,7 @@ export const addOrder = async (req, res) => {
 //-----Get Order-----//
 export const getOrder = async (req, res) => {
     try {
-        const orderHistory = await Order.find({userId: req.user._id});
+        const orderHistory = await Order.find({userId: req.user._id}).populate("productId");
         if (!orderHistory) {
             res.status(404).json({
                 error: false,

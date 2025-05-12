@@ -25,7 +25,8 @@ const OrderSchema = new Schema({
     enum: ["completed", "preparing"],
     default: "preparing",
   },
-  productId: { type: Array, required: false },
+  // productId: { type: Array, required: false },
+  productId: [{ type: Schema.Types.ObjectId, ref: "Product" }],
   userId: { type: Schema.Types.ObjectId, ref: "User", required: false },
 
   createdAt: { type: Date, default: new Date().getTime() },
