@@ -7,7 +7,7 @@ let io;
 
 const initializeSocket = (server) => {
   io = new Server(server, {
-    cors: { origin: 'http://localhost:5173' },
+    cors: { origin: ['https://dragon-tempura-sprint2.vercel.app' ,'http://localhost:5173',] },
   });
 
   io.on('connection', (socket) => {
