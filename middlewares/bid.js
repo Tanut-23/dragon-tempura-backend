@@ -5,6 +5,6 @@ import { getBidsByProduct } from '../controller/bidController.js';
 const router = express.Router();
 
 // /api/bids/:productId
-router.get('/:productId', getBidsByProduct);
+router.get('/bids/:productId', getBidsByProduct);
 
 export default router;
