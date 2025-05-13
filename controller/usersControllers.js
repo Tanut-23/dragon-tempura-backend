@@ -106,8 +106,8 @@ export const loginUser = async (req, res) => {
     const isProduct = process.env.NODE_ENV === "production";
     res.cookie("token", token, {
       httpOnly: true,
-      secure: isProduct ,
-      sameSite: isProduct ? "strict" : "lax",
+      secure: true ,
+      sameSite: "none",
       path: "/",
       maxAge: 30 * 24 * 60 * 60 * 1000,
     })
@@ -168,4 +168,26 @@ export const resetPassword = async (req, res) => {
   }
 };
 
+//-----Logout-----//
+export const logoutUser = (req, res) => {
+  const isProduct = process.env.NODE_ENV === "production";
+    res.clearCookie("token", {
+      httpOnly: true,
+      secure: isProduct ,
+      sameSite: isProduct ? "strict" : "lax",
+      path: "/",
+    });
+    res.json({
+      error: false,
+      message: "Logout success",
+    });
+  }
 
+//-----Verify token-----//
+export const verifyToken = (req, res) => {
+  res.json({
+    error: false,
+    message: "Authenticated",
+    user: req.user,
+  });
+}

@@ -24,12 +24,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiM
 ### Get product
 GET http://localhost:3000/api/product-get
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTk4MzdkYzIzM2VjZDBmMWY3MTQiLCJpYXQiOjE3NDY2MzUwNTIsImV4cCI6MTc0OTIyNzA1Mn0.Bu9avjVZLAXG5UvrAfLCkbsLJP7aPMy24IjhhncGyNA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODIwZDlmNGI0ZWZiNTQyMWMyMTBmNTQiLCJpYXQiOjE3NDY5ODM2NDgsImV4cCI6MTc0OTU3NTY0OH0.exdzAL1s-U-yDXeNc-Twv4Km0jzur-xXIdSavHuwZL0
 
 ### Get product by userId
-GET http://localhost:3000/api/product-get/681b19837dc233ecd0f1f714
+GET http://localhost:3000/api/product-get/6820da50b4efb5421c210f5f
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFiMTA4OGU3NjAxYjYyOTU3NDA1NTYiLCJpYXQiOjE3NDY2MDQ1NjEsImV4cCI6MTc0OTE5NjU2MX0.AO6kWeR-amMoorRr5RNXpkJ6I2ZOcFZ1h5KQ1DTCYTA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODIwZDlmNGI0ZWZiNTQyMWMyMTBmNTQiLCJpYXQiOjE3NDY5ODM2NDgsImV4cCI6MTc0OTU3NTY0OH0.exdzAL1s-U-yDXeNc-Twv4Km0jzur-xXIdSavHuwZL0
 
 ### Edit by put product
 PUT http://localhost:3000/api/product-put/681da8b47118d603ecd8d3f9
@@ -61,11 +61,11 @@ GET http://localhost:3000/api/my-products
 Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFhZDY5YzU3ODhmZTUwOTNmMTEzMzkiLCJpYXQiOjE3NDY4MDY2MDEsImV4cCI6MTc0OTM5ODYwMX0.MRnA8q_GtyMO2l3sqvtTP5nDANxk_SamSJeGbAuR2_o
 
 ###
-GET http://localhost:3000/api/product/681e114a5e5e50a409efdb7e
+GET http://localhost:3000/api/product/681b198a9e2bff4d7fab3ed7
 
 ###
 GET http://localhost:3000/api/products?genre=Modern
-Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFhZDY5YzU3ODhmZTUwOTNmMTEzMzkiLCJpYXQiOjE3NDY4MDY2MDEsImV4cCI6MTc0OTM5ODYwMX0.MRnA8q_GtyMO2l3sqvtTP5nDANxk_SamSJeGbAuR2_o
+Cookie: token=eeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODIwZDlmNGI0ZWZiNTQyMWMyMTBmNTQiLCJpYXQiOjE3NDY5ODM0MTgsImV4cCI6MTc0OTU3NTQxOH0.mUBAs9CxHjSO48JiGRp6x_yS5zmzHwAxmLT_KQPPafs
 
 ### Get all auction product
 GET http://localhost:3000/api/product-get-auction

@@ -21,7 +21,7 @@ export const addProduct = async (req, res) => {
 //-----Get Fixed Price Product-----//
 export const getProduct = async (req, res) => {
   try {
-    const allProduct = await Product.find({'auction.isAuction': false});
+    const allProduct = await Product.find({'auction.isAuction': false , 'approve': 'approved'});
     res.status(200).json({
       err: false,
       allProduct,
@@ -34,6 +34,48 @@ export const getProduct = async (req, res) => {
     });
   }
 };
+//-----Get My Product-----//
+export const getMyProduct = async (req, res) => {
+  const { _id } = req.user;
+  try {
+    const products = await Product.find({ userId: _id });
+    if (!products) {
+      return res
+        .status(404)
+        .json({ error: true, message: "Product not found" });
+    }
+    res.status(200).json(products);
+  } catch (err) {
+    res.status(500).json({
+      error: true,
+      message: "Failed to fetch products",
+      detail: err.message,
+    });
+  }
+}
+
+//-----Get Product By Genre-----//
+export const getProductByGenre = async (req, res) => {
+  const genre = req.query.genre;
+
+  try {
+    const query = genre ? { "tags.title": genre } : {};
+    query["approve"] = "approved";
+    query["auction.isAuction"] = { $ne: true };
+
+    const products = await Product.find(query)
+    res.status(200).json({
+      error: false,
+      products,
+    });
+} catch (err) {
+    res.status(500).json({
+      error: true,
+      message: "Failed to fetch products",
+      detail: err.message,
+    });
+  }
+}
 
 //-----Get Product By productId-----//
 export const getProductById = async (req, res) => {
@@ -107,6 +149,8 @@ export const getProductByUserId = async (req, res) => {
   }
 };
 
+
+//-----Edit Product-----//
 export const editByPutProduct = async (req, res) => {
   const productId = req.params.id;
   const userId = req.user._id;
@@ -179,6 +223,31 @@ export const getAllAuctionProduct = async (req, res) => {
     res.status(200).json({
       err: false,
       allAuctionProduct
+    });
+  } catch(err) {
+    res.status(500).json({
+      error: true,
+      message: "Fail to fetch auction product",
+      detail: err.message,
+    });
+  }
+};
+//-----Get All Auction Product By productId-----//
+export const getAllAuctionProductId = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const auctionProduct = await Product.findOne({
+      _id: id,
+      'auction.isAuction': true});
+      if(!auctionProduct) {
+        return res.status(404).json({
+          err: true,
+          message: "Can't find auction productId",
+        });
+      }
+      res.status(200).json({
+      err: false,
+      auctionProduct
     });
   } catch(err) {
     res.status(500).json({

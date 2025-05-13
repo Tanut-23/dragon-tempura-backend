@@ -20,7 +20,10 @@ export const authUser = async (req, res, next) => {
       });
     }
 
-    req.user = user;  //add user data to req.user
+    req.user =  {
+      ...user.toObject(),
+      _id: user._id,
+    };
     next();
   } catch (err) {
     const isExpired = err.name === "TokenExpiredError";
