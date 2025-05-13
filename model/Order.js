@@ -29,8 +29,8 @@ const OrderSchema = new Schema({
   productId: [{ type: Schema.Types.ObjectId, ref: "Product" }],
   userId: { type: Schema.Types.ObjectId, ref: "User", required: false },
 
-  createdAt: { type: Date, default: new Date().getTime() },
-  updatedAt: { type: Date, default: new Date().getTime() },
+  createdAt: { type: Date, default: () => Date.now() },
+  updatedAt: { type: Date, default: () => Date.now() },
 });
 
 export const Order = model("Order", OrderSchema);

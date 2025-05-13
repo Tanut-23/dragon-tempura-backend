@@ -21,7 +21,7 @@ export const addProduct = async (req, res) => {
 //-----Get Fixed Price Product-----//
 export const getProduct = async (req, res) => {
   try {
-    const allProduct = await Product.find({'auction.isAuction': false});
+    const allProduct = await Product.find({'auction.isAuction': false , 'approve': 'approved'});
     res.status(200).json({
       err: false,
       allProduct,
@@ -60,7 +60,7 @@ export const getProductByGenre = async (req, res) => {
 
   try {
     const query = genre ? { "tags.title": genre } : {};
-    
+    query["approve"] = "approved";
     query["auction.isAuction"] = { $ne: true };
 
     const products = await Product.find(query)

@@ -12,7 +12,9 @@ dotenv.config();
 
 const app = express();
 app.set("trust proxy", 1);
-
+app.get("/helthcheck", (req, res) => {
+  res.send("Server is running");
+})
 app.use(helmet());
 const server = http.createServer(app);
 
