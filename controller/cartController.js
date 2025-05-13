@@ -112,7 +112,7 @@ export const deleteCart = async (req, res) => {
 //-----Delete Cart After Order-----//
 export const deleteCartAfterOrder = async (req, res) => {
   try {
-    let cart = await Cart.findById(req.params.cartId).populate(
+    let cart = await Cart.findOne({ userId: req.user._id }).populate(
       "items.productId"
     );
     if (!cart) {
@@ -133,7 +133,7 @@ export const deleteCartAfterOrder = async (req, res) => {
     for (const item of cart.items) {
       const product = item.productId;
       if (product && product.status !== "completed") {
-        await Product.findByIdAndUpdate(product._id, {
+        await Product.findByIdAndUpdate(item.productId._id, {
           status: "completed",
         });
       }
