@@ -21,7 +21,7 @@ export const addProduct = async (req, res) => {
 //-----Get Fixed Price Product-----//
 export const getProduct = async (req, res) => {
   try {
-    const allProduct = await Product.find({'auction.isAuction': false , 'approve': 'approved'});
+    const allProduct = await Product.find({'auction.isAuction': false , 'approve': 'approved', 'status': 'onGoing'});
     res.status(200).json({
       err: false,
       allProduct,
@@ -29,7 +29,7 @@ export const getProduct = async (req, res) => {
   } catch (err) {
     res.status(500).json({
       error: true,
-      message: "Fail to fetch",
+      message: "Fail to fetch fixed price product",
       detail: err.message,
     });
   }
@@ -219,7 +219,7 @@ export const deleteProduct = async (req, res) => {
 //-----Get All Auction Product-----//
 export const getAllAuctionProduct = async (req, res) => {
   try {
-    const allAuctionProduct = await Product.find({'auction.isAuction': true});
+    const allAuctionProduct = await Product.find({'auction.isAuction': true, 'approve': 'approved' , 'status': 'onGoing'});
     res.status(200).json({
       err: false,
       allAuctionProduct
