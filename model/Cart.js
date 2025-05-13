@@ -12,8 +12,8 @@ const CartSchema = new Schema({
             quantity: { type: Number, default: 1 },
         },
     ],
-    createdAt: { type: Date, default: new Date().getTime() },
-    updatedAt: { type: Date, default: new Date().getTime() },
+    createdAt: { type: Date, default: () => Date.now() },
+    updatedAt: { type: Date, default: () => Date.now() },
 });
 
 export const Cart = model("Cart", CartSchema);
