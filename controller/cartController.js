@@ -123,11 +123,11 @@ export const deleteCartAfterOrder = async (req, res) => {
         }
         // This is code that Mate try 😎
 
-        // for (const item of cart.items) {
-        //     if (item.productId) {
-        //         await Product.findByIdAndUpdate(item.productId._id, { status: "complete" });
-        //     }
-        // }
+        for (const item of cart.items) {
+            if (item.productId) {
+                await Product.findByIdAndUpdate(item.productId._id, { status: 'complete'});
+            }
+        }
 
         //Delete cart
         await Cart.findByIdAndDelete(cart._id)
