@@ -32,7 +32,11 @@ router.get("/products", async (req, res) => {
   const genre = req.query.genre;
 
   try {
-    const query = genre ? { "tags.title": genre } : {};
+    const query = { approve: 'approved' , status: 'onGoing' };
+
+    if (genre) {
+      query["tags.title"] = genre;
+    }
 
     const products = await Product.find(query)
     res.status(200).json({
