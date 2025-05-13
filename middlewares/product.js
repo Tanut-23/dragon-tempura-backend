@@ -33,7 +33,7 @@ router.get("/products", async (req, res) => {
 
   try {
     const query = genre ? { "tags.title": genre } : {};
-    
+
     const products = await Product.find(query)
     res.status(200).json({
       error: false,
