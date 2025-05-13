@@ -4,13 +4,12 @@ import product from "../middlewares/product.js";
 import order from "../middlewares/order.js";
 import cart from "../middlewares/cart.js";
 
-
 const router = express.Router();
 
-    router.use("/api", user)
-    router.use("/api", product)
-    router.use("/api", order)
-    router.use("/api", cart)
+router.use("/api", user);
+router.use("/api", product);
+router.use("/api", order);
+router.use("/api", cart);
 
 export default router;
 
