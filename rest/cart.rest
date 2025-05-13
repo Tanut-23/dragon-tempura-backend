@@ -27,5 +27,5 @@ DELETE http://localhost:3000/api/cart-delete
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFkYWZjODNhYjY1YjJiY2E4MDE4ODAiLCJpYXQiOjE3NDY3NzYwMjAsImV4cCI6MTc0OTM2ODAyMH0.fi5m_sk0aNejb-5JDnJc622LTVU2ckHklHIRPnywkMM
 
 ### Delete Cart After Order
-DELETE http://localhost:3000/api/cart-delete-update/6822c9966dfa51b1ae1ddd94
+DELETE http://localhost:3000/api/cart-delete-update/6822e8a6ac8d207e107cf4e2
 Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODFhZDY5YzU3ODhmZTUwOTNmMTEzMzkiLCJpYXQiOjE3NDcwNDg3NTMsImV4cCI6MTc0OTY0MDc1M30.stf29qH6yvy7Mw2HmeMKoTy3iPfOFIsxZj8k6dtM3Tc

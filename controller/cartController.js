@@ -2,7 +2,6 @@ import express from "express";
 import { Cart } from "../model/Cart.js";
 import { Product } from "../model/Product.js";
 
-
 const router = express.Router();
 
 //-----Add Cart / Add item to Cart-----//
@@ -113,7 +112,7 @@ export const deleteCart = async (req, res) => {
 //-----Delete Cart After Order-----//
 export const deleteCartAfterOrder = async (req, res) => {
   try {
-    let cart = await Cart.findOne({ userId: req.user._id }).populate(
+    let cart = await Cart.findById(req.params.cartId).populate(
       "items.productId"
     );
     if (!cart) {
@@ -134,7 +133,7 @@ export const deleteCartAfterOrder = async (req, res) => {
     for (const item of cart.items) {
       const product = item.productId;
       if (product && product.status !== "completed") {
-        await Product.findByIdAndUpdate(item.productId._id, {
+        await Product.findByIdAndUpdate(product._id, {
           status: "completed",
         });
       }
@@ -151,6 +150,7 @@ export const deleteCartAfterOrder = async (req, res) => {
     res.status(500).json({
       error: true,
       message: "Can not delete completed cart",
+      detail: err.message,
     });
   }
 };
