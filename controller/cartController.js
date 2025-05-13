@@ -48,7 +48,7 @@ export const addCart = async (req, res) => {
 //-----Get Cart for the user-----//
 export const getCart = async (req, res) => {
     try {
-        const cart = await Cart.findOne({userId: req.user._id});
+        const cart = await Cart.findOne({userId: req.user._id}).populate("items.productId");
         if (!cart) {
             res.status(404).json({
                 error: false,
@@ -114,20 +114,28 @@ export const deleteCart = async (req, res) => {
 //-----Delete Cart After Order-----//
 export const deleteCartAfterOrder = async (req, res) => {
     try {
-        let cart = await Cart.findOne({ userId: req.user._id });
+        let cart = await Cart.findOne({ userId: req.user._id }).populate("items.productId");
         if (!cart) {
             return res.status(404).json({
                 error: true,
                 message: "Can not find cart"
             })
         }
+        // This is code that Mate try 😎
+
+        // for (const item of cart.items) {
+        //     if (item.productId) {
+        //         await Product.findByIdAndUpdate(item.productId._id, { status: "complete" });
+        //     }
+        // }
+
         //Delete cart
         await Cart.findByIdAndDelete(cart._id)
         res.status(200).json({
             error: false,
             message: "Completed cart is deleted"
         })
-        
+
     } catch(err) {
         res.status(500).json({
             error: true,
