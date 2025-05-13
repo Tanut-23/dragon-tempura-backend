@@ -126,6 +126,11 @@ export const deleteCartAfterOrder = async (req, res) => {
     console.log("🛒 Found cart:", cart);
     // This is code that Mate try 😎
 
+        // for (const item of cart.items) {
+        //     if (item.productId) {
+        //         await Product.findByIdAndUpdate(item.productId._id, { status: 'complete'});
+        //     }
+        // }
     for (const item of cart.items) {
       const product = item.productId;
       if (product && product.status !== "completed") {
