@@ -17,7 +17,6 @@ const initializeSocket = (server) => {
         return;
       }
       try {
-        // Atomic check-and-set: ป้องกัน bid พร้อมกัน
         const product = await Product.findOneAndUpdate(
           { _id: productId, $or: [{ currentBidAmount: { $lt: amount } }, { currentBidAmount: { $exists: false } }] },
           { $set: { currentBidAmount: amount } },
@@ -39,8 +38,8 @@ const initializeSocket = (server) => {
           amount,
           userId,
           createdAt: newBid.createdAt,
-          firstName: populatedBid.user?.firstName || "Unknown",
-          lastName: populatedBid.user?.lastName || ""
+          firstName: populatedBid.user?.firstName,
+          lastName: populatedBid.user?.lastName
         });
       } catch (err) {
         console.error('Bid creation error:', err);
