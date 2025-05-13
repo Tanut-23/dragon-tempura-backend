@@ -7,7 +7,7 @@ let io;
 
 const initializeSocket = (server) => {
   io = new Server(server, {
-    cors: { origin: ['https://dragon-tempura-sprint2.vercel.app' ,'http://localhost:5173',] },
+    cors: { origin: ['https://dragon-tempura-sprint2.vercel.app', 'http://localhost:5173',] },
   });
 
   io.on('connection', (socket) => {
@@ -18,12 +18,37 @@ const initializeSocket = (server) => {
         return;
       }
       try {
+        const product = await Product.findById(productId).populate('currentBid');
+        if (product.currentBid && amount <= product.currentBid.amount) {
+          socket.emit('bidError', { message: 'Bid must be higher than current bid' });
+          return;
+        }
+
+        const updatedProduct = await Product.findOneAndUpdate(
+          {
+            _id: productId,
+            $or: [
+              { currentBid: null },
+              { 'currentBid.amount': { $lt: amount } }
+            ]
+          },
+          { $set: {} },
+          { new: true }
+        ).populate('currentBid');
+
+        if (!updatedProduct) {
+          socket.emit('bidError', { message: 'Bid was too slow or not high enough' });
+          return;
+        }
+
         const newBid = await Bid.create({
           product: productId,
           user: userId,
           amount
         });
+
         await Product.findByIdAndUpdate(productId, { currentBid: newBid._id });
+
         const populatedBid = await Bid.findById(newBid._id).populate('user', 'firstName lastName');
         io.emit('newBid', {
           productId,
