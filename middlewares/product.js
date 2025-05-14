@@ -32,7 +32,7 @@ router.get("/products", async (req, res) => {
   const genre = req.query.genre;
 
   try {
-    const query = { approve: 'approved' , status: 'onGoing' };
+    const query = { approve: 'approved' , status: 'onGoing' , 'auction.isAuction': false };
 
     if (genre) {
       query["tags.title"] = genre;

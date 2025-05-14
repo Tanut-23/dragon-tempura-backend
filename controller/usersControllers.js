@@ -5,30 +5,29 @@ import jwt from "jsonwebtoken";
 
 //-----Get User By UserId-----//
 
-export const getUserById = async (req , res) => {
+export const getUserById = async (req, res) => {
   const { id } = req.params;
-  try{
+  try {
     const user = await User.findById(id);
-  if (!user) {
-    return res.status(404).json({
-      error: true,
-      message: "Can't find userId"
-    });
-  }
+    if (!user) {
+      return res.status(404).json({
+        error: true,
+        message: "Can't find userId",
+      });
+    }
 
-  res.status(200).json({
-    error:false,
-    user
-  })
-  } catch (err){
+    res.status(200).json({
+      error: false,
+      user,
+    });
+  } catch (err) {
     res.status(500).json({
       error: true,
       message: "Fail to fetch",
       detail: err.message,
-    })
+    });
   }
-
-}
+};
 
 //-----Get User------//
 export const getUser = async (req, res) => {
@@ -81,7 +80,7 @@ export const registerUser = async (req, res) => {
 //-----Login-----//
 
 export const loginUser = async (req, res) => {
-  const { email, password ,firstName , lastName} = req.body;
+  const { email, password, firstName, lastName } = req.body;
 
   if (!email || !password) {
     return res.status(400).json({
@@ -106,11 +105,11 @@ export const loginUser = async (req, res) => {
     const isProduct = process.env.NODE_ENV === "production";
     res.cookie("token", token, {
       httpOnly: true,
-      secure: true ,
+      secure: true,
       sameSite: "none",
       path: "/",
       maxAge: 30 * 24 * 60 * 60 * 1000,
-    })
+    });
 
     res.json({
       error: false,
@@ -170,10 +169,11 @@ export const resetPassword = async (req, res) => {
 
 //-----Logout-----//
 export const logoutUser = (req, res) => {
-  const isProduct = process.env.NODE_ENV === "production";
+  try {
+    const isProduct = process.env.NODE_ENV === "production";
     res.clearCookie("token", {
       httpOnly: true,
-      secure: isProduct ,
+      secure: isProduct,
       sameSite: isProduct ? "strict" : "lax",
       path: "/",
     });
@@ -181,8 +181,14 @@ export const logoutUser = (req, res) => {
       error: false,
       message: "Logout success",
     });
+  } catch (err) {
+    res.status(500).json({
+      error: true,
+      message: "Server error",
+      detail: err.message,
+    });
   }
-
+};
 //-----Verify token-----//
 export const verifyToken = (req, res) => {
   res.json({
@@ -190,4 +196,4 @@ export const verifyToken = (req, res) => {
     message: "Authenticated",
     user: req.user,
   });
-}
+};
