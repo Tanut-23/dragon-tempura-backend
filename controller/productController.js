@@ -21,7 +21,7 @@ export const addProduct = async (req, res) => {
 //-----Get Fixed Price Product-----//
 export const getProduct = async (req, res) => {
   try {
-    const allProduct = await Product.find({'auction.isAuction': false , 'approve': 'approved'});
+    const allProduct = await Product.find({'auction.isAuction': false , 'approve': 'approved' , 'status':'onGoing'});
     res.status(200).json({
       err: false,
       allProduct,
@@ -55,27 +55,27 @@ export const getMyProduct = async (req, res) => {
 }
 
 //-----Get Product By Genre-----//
-export const getProductByGenre = async (req, res) => {
-  const genre = req.query.genre;
+// export const getProductByGenre = async (req, res) => {
+//   const genre = req.query.genre;
 
-  try {
-    const query = genre ? { "tags.title": genre } : {};
-    query["approve"] = "approved";
-    query["auction.isAuction"] = { $ne: true };
+//   try {
+//     const query = genre ? { "tags.title": genre } : {};
+//     query["approve"] = "approved";
+//     query["auction.isAuction"] = { $ne: true };
 
-    const products = await Product.find(query)
-    res.status(200).json({
-      error: false,
-      products,
-    });
-} catch (err) {
-    res.status(500).json({
-      error: true,
-      message: "Failed to fetch products",
-      detail: err.message,
-    });
-  }
-}
+//     const products = await Product.find(query)
+//     res.status(200).json({
+//       error: false,
+//       products,
+//     });
+// } catch (err) {
+//     res.status(500).json({
+//       error: true,
+//       message: "Failed to fetch products",
+//       detail: err.message,
+//     });
+//   }
+// }
 
 //-----Get Product By productId-----//
 export const getProductById = async (req, res) => {
