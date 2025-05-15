@@ -21,7 +21,8 @@ export const addProduct = async (req, res) => {
 //-----Get Fixed Price Product-----//
 export const getProduct = async (req, res) => {
   try {
-    const allProduct = await Product.find({'auction.isAuction': false , 'approve': 'approved'});
+    const allProduct = await Product.find({'auction.isAuction': false , 'approve': 'approved' ,
+      'status': 'onGoing'});
     res.status(200).json({
       err: false,
       allProduct,
