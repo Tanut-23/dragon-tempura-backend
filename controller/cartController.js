@@ -122,7 +122,6 @@ export const deleteCartAfterOrder = async (req, res) => {
       });
     }
 
-    console.log("🛒 Found cart:", cart);
     // This is code that Mate try 😎
 
         // for (const item of cart.items) {
@@ -141,7 +140,6 @@ export const deleteCartAfterOrder = async (req, res) => {
 
     //Delete cart
     await Cart.findByIdAndDelete(cart._id);
-    console.log("🗑️ Cart deleted");
     res.status(200).json({
       error: false,
       message: "Completed cart is deleted",
