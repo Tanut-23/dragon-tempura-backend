@@ -4,33 +4,42 @@ import { Product } from './model/Product.js';
 
 let io;
 
-const isValidBid = ({ productId, userId, amount }) =>
-  Boolean(productId && userId && amount);
+function isValidBid({ productId, userId, amount }) {
+  return Boolean(productId && userId && amount);
+}
 
-const handlePlaceBid = async (socket, { productId, userId, amount }) => {
+function emitBidError(socket, message, detail = '') {
+  socket.emit('bidError', { message, detail });
+}
+
+async function handlePlaceBid(socket, { productId, userId, amount }) {
   if (!isValidBid({ productId, userId, amount })) {
-    socket.emit('bidError', { message: 'Missing productId, userId, or amount' });
+    emitBidError(socket, 'Missing productId, userId, or amount');
     return;
   }
+
   try {
     const newBid = await Bid.create({ product: productId, user: userId, amount });
+
     await Product.findByIdAndUpdate(productId, { currentBid: newBid._id });
     const populatedBid = await Bid.findById(newBid._id).populate('user', 'firstName lastName');
+    const { firstName = '', lastName = '' } = populatedBid.user || {};
+
     io.emit('newBid', {
       productId,
       amount,
       userId,
       createdAt: newBid.createdAt,
-      firstName: populatedBid.user?.firstName,
-      lastName: populatedBid.user?.lastName
+      firstName,
+      lastName
     });
   } catch (err) {
     console.error('Bid creation error:', err);
-    socket.emit('bidError', { message: 'Bid creation failed', detail: err.message });
+    emitBidError(socket, 'Bid creation failed', err.message);
   }
-};
+}
 
-const initializeSocket = (server) => {
+function initializeSocket(server) {
   io = new Server(server, {
     cors: { origin: ['https://dragon-tempura-sprint2.vercel.app', 'http://localhost:5173'] },
   });
@@ -44,23 +53,20 @@ const initializeSocket = (server) => {
   });
 
   return io;
-};
+}
 
 export { initializeSocket, io };
-
-
 
 
 
 // io.on('connection', (socket) => {
 //   console.log(`User connected: ${socket.id}`);
 
-//   socket.on('oneBid', (dataAuctioneer) => {
-//     io.emit('shareBid', dataAuctioneer);
+//   socket.on('placeBid', (dataAuction) => {
+//     io.emit('newBid', dataAuction);
 //   });
 
 //   socket.on('disconnect', () => {
 //     console.log(`User disconnected: ${socket.id}`);
 //   });
 // });
-
