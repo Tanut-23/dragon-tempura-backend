@@ -238,7 +238,8 @@ export const getAllAuctionProductId = async (req, res) => {
     const { id } = req.params;
     const auctionProduct = await Product.findOne({
       _id: id,
-      'auction.isAuction': true});
+      'auction.isAuction': true,
+      'status': 'onGoing',});
       if(!auctionProduct) {
         return res.status(404).json({
           err: true,
