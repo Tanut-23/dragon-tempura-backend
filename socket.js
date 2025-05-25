@@ -18,6 +18,17 @@ async function handlePlaceBid(socket, { productId, userId, amount }) {
     return;
   }
 
+  if (amount <= 0) {
+    emitBidError(socket, 'Bid amount must be greater than 0');
+    return;
+  }
+
+  const highestBid = await Bid.findOne({ product: productId }).sort({ amount: -1 });
+  if (highestBid && amount <= highestBid.amount) {
+    emitBidError(socket, `Bid amount must be higher than current bid ($${highestBid.amount})`);
+    return;
+  }
+
   try {
     const newBid = await Bid.create({ product: productId, user: userId, amount });
 
