@@ -6,14 +6,18 @@ const bidSchema = new Schema({
     ref: 'Product',
     required: true,
   },
-   user: {
+  user: {
     type: Schema.Types.ObjectId,
     ref: 'User',
     required: true,
   },
   amount: {
-    type: String,
-    required: true
+    type: Number,
+    required: true,
+    validate: {
+      validator: Number.isFinite,
+      message: "Bid amount must be a valid number"
+    }
   },
   createdAt: {
     type: Date,
