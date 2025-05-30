@@ -14,8 +14,8 @@ const ProductSchema = new Schema({
 
   tags: { type: Array },
 
-  price: { type: String },
-  minBidPrice: { type: String },
+  price: { type: Number },
+  minBidPrice: { type: Number },
   currentBid: {
     type: Schema.Types.ObjectId,
     ref: 'Bid'

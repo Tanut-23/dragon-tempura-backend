@@ -14,11 +14,21 @@ function emitBidError(socket, message, detail = '') {
 
 async function handlePlaceBid(socket, { productId, userId, amount }) {
   if (!isValidBid({ productId, userId, amount })) {
-    emitBidError(socket, 'Missing productId, userId, or amount');
+    emitBidError(socket, 'Enter your bid');
     return;
   }
 
   try {
+    const lastBid = await Bid.findOne({ product: productId }).sort({ createdAt: -1 });
+    const product = await Product.findById(productId);
+
+    const minBid = lastBid ? lastBid.amount : (product.minBidPrice || 1);
+
+    if (amount <= minBid) {
+      emitBidError(socket, `Bid amount must be higher than $${minBid}`);
+      return;
+    }
+
     const newBid = await Bid.create({ product: productId, user: userId, amount });
 
     await Product.findByIdAndUpdate(productId, { currentBid: newBid._id });
