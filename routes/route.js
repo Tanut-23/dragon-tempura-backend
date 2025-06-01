@@ -5,6 +5,8 @@ import order from "../middlewares/order.js";
 import cart from "../middlewares/cart.js";
 import bid from "../middlewares/bid.js";
 import serverTime from "../middlewares/serverTime.js";
+import wishlist from "../middlewares/wishlist.js";
+
 
 const router = express.Router();
 
@@ -15,5 +17,7 @@ router.use("/api", cart);
 router.use("/api", bid);
 router.use("/api", bid);
 router.use("/api", serverTime);
+router.use("/api", wishlist);
+
 
 export default router;
